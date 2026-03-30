@@ -3,11 +3,11 @@
 > Prevent training/serving skew and data leakage with point-in-time correct feature retrieval -- no infrastructure required
 
 [![CI](https://github.com/jrajath94/ml-feature-store/workflows/CI/badge.svg)](https://github.com/jrajath94/ml-feature-store/actions)
-[![Coverage](https://codecov.io/gh/jrajath94/ml-feature-store/branch/main/graph/badge.svg)](https://codecov.io/gh/jrajath94/ml-feature-store)
+[![Coverage](https://codecov.io/gh/jrajath94/ml-feature-store/branch/master/graph/badge.svg)](https://codecov.io/gh/jrajath94/ml-feature-store)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-## The Problem
+## Why This Exists
 
 Training a fraud detection model requires historical features: a user's average transaction size, days since account creation, transaction count over the last 7 days. At training time, you compute these from historical data. At inference, you compute them from current data. These two computations almost never match.
 
