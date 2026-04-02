@@ -1,15 +1,12 @@
 """Tests for ML feature store with point-in-time correctness."""
 
-from datetime import datetime, timezone
+from datetime import datetime
 
-import numpy as np
 import pandas as pd
 import pytest
 
 from ml_feature_store.store import (
     FeatureStore,
-    FeatureTableInfo,
-    FeatureStoreError,
     FeatureTableNotFoundError,
     FeatureValidationError,
 )
