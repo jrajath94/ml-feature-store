@@ -5,7 +5,7 @@
 [![CI](https://github.com/jrajath94/ml-feature-store/workflows/CI/badge.svg)](https://github.com/jrajath94/ml-feature-store/actions)
 [![Coverage](https://codecov.io/gh/jrajath94/ml-feature-store/branch/master/graph/badge.svg)](https://codecov.io/gh/jrajath94/ml-feature-store)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
 ## Why This Exists
 
