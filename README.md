@@ -101,7 +101,7 @@ serve_features = store.get(
 | Capability              | This Feature Store             | Feast (OSS)             | Tecton / Databricks   | Hopsworks          |
 | ----------------------- | ------------------------------ | ----------------------- | --------------------- | ------------------ |
 | Point-in-time joins     | Yes (temporal filter + idxmax) | Yes                     | Yes                   | Yes                |
-| Online serving latency  | 100ms+ (DataFrame scan)        | 5ms (Redis/DynamoDB)    | <10ms (managed)       | ~10ms (RonDB)      |
+| Online serving latency  | Higher latency (DataFrame scan) | 5ms (Redis/DynamoDB)    | <10ms (managed)       | ~10ms (RonDB)      |
 | Offline (batch) serving | Fast (in-memory pandas)        | Good (Spark/BigQuery)   | Excellent (Spark)     | Good (Spark/Hive)  |
 | Infrastructure required | None (local memory)            | Redis + object store    | Managed SaaS          | Kubernetes cluster |
 | Setup complexity        | `pip install` + 1 file         | Moderate (YAML configs) | Low (managed)         | High (K8s + Java)  |
@@ -112,11 +112,7 @@ serve_features = store.get(
 
 **Performance characteristics:**
 
-| Feature Table Size | Query Time (10 entities) | Notes                  |
-| ------------------ | ------------------------ | ---------------------- |
-| 100K rows          | <1ms                     | In-memory DataFrame    |
-| 1M rows            | 5-10ms                   | Comfortable for pandas |
-| 10M rows           | 100-500ms                | Consider partitioning  |
+Query performance depends on table size and hardware. For moderate datasets (up to 10M rows), in-memory DataFrame operations are typically sufficient. For larger tables, consider partitioning by time range or entity to reduce scan sizes.
 
 ## Design Decisions
 
