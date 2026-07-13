@@ -13,13 +13,9 @@ Traditional feature stores query current state. This queries historical state:
 - **store.py**: Main FeatureStore API
   - register(name, df): Associate DataFrame with table name
   - get(table, entity_ids, timestamp): Retrieve historical features
-  - Uses pandas merge with asof matching for point-in-time lookups
-
-- **validation.py**: Schema enforcement
-  - Checks timestamp column exists
-  - Validates entity_id uniqueness within timestamps
-  - Handles missing entities gracefully
+  - Temporal filtering: returns only rows where timestamp <= query_timestamp
+  - Latest-per-entity: groups by entity_id and selects the most recent row within the time window
 
 ## Correctness Guarantee
 
-The asof merge ensures: for each entity at timestamp T, return the most recent row <= T. This prevents lookahead (returning future data).
+Temporal filtering and latest-per-entity selection ensure: for each entity at timestamp T, return the most recent row where timestamp <= T. This prevents lookahead (returning future data).
